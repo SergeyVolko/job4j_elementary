@@ -4,50 +4,50 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 import static ru.job4j.array.JavaNameValidator.*;
 
-class JavaNameValidatorTest {
+public class JavaNameValidatorTest {
 
     @Test
-    void whenEmptyNameInvalid() {
+    public void whenEmptyNameInvalid() {
         assertThat(isNameValid("")).isFalse();
     }
 
     @Test
-    void whenFullLatValid() {
+    public void whenFullLatValid() {
         assertThat(isNameValid("first")).isTrue();
     }
 
     @Test
-    void whenFullLatAndSomeUpperCaseLettersValid() {
+    public void whenFullLatAndSomeUpperCaseLettersValid() {
         assertThat(isNameValid("fIRST")).isTrue();
     }
 
     @Test
-    void whenLatNumberValid() {
+    public void whenLatNumberValid() {
         assertThat(isNameValid("first1")).isTrue();
     }
 
     @Test
-    void whenLatWithSpecialSymbolUnderValid() {
+    public void whenLatWithSpecialSymbolUnderValid() {
         assertThat(isNameValid("first_user")).isTrue();
     }
 
     @Test
-    void whenNumberInValid() {
+    public void whenNumberInValid() {
         assertThat(isNameValid("123")).isFalse();
     }
 
     @Test
-    void whenFirstLatinUpperCaseIsInvalid() {
+    public void whenFirstLatinUpperCaseIsInvalid() {
         assertThat(isNameValid("First")).isFalse();
     }
 
     @Test
-    void whenLatNumberAndTwoSpecialSymbolsUnderValid() {
+    public void whenLatNumberAndTwoSpecialSymbolsUnderValid() {
         assertThat(isNameValid("fir$t_u$er_1")).isTrue();
     }
 
     @Test
-    void whenOtherSymbolIsInvalid() {
+    public void whenOtherSymbolIsInvalid() {
         assertThat(isNameValid("fir{1")).isFalse();
     }
 }
