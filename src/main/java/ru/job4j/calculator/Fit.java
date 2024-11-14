@@ -1,21 +1,22 @@
 package ru.job4j.calculator;
 
 public class Fit {
-    public static double manWeight(short height) {
-        double rsl = (height - 100) * 1.15;
-        return rsl;
-    }
 
-    public static double womanWeight(short height) {
-        double rsl = (height - 110) * 1.15;
-        return rsl;
+    private static final int MAN_OFFSET = 100;
+    private static final int WOMAN_OFFSET = 110;
+
+    public static double idealWeight(short height, int offset) {
+        return (height - offset) * 1.15;
     }
 
     public static void main(String[] args) {
-        short height = 187;
-        double man = Fit.manWeight(height);
+        short heightMan = 187;
+        short heightWoman = 170;
+
+        double man = idealWeight(heightMan, MAN_OFFSET);
         System.out.println("Man 187 is " + man);
-        double woman = 171;
-        System.out.println("Woman 171 is " + woman);
+
+        double woman = idealWeight(heightWoman, WOMAN_OFFSET);
+        System.out.println("Woman 170 is " + woman);
     }
 }
